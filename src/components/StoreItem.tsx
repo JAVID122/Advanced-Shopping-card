@@ -1,5 +1,5 @@
 import { Button, Card } from 'react-bootstrap'
-// import { useShoppingCart } from '../context/ShoppingCartContext'
+import { useShoppingCart } from '../context/ShoppingCartContext'
 // import { formatCurrency } from '../utilities/formatCurrency'
 type StoreItemProps={
  id:number,
@@ -11,12 +11,12 @@ type StoreItemProps={
 export function StoreItem(
  { id,name,price,imgUrl }: StoreItemProps) {
   // const {
-  //   getItemQuantity,
+    getItemQuantity,
   //   increaseCartQuantity,
   //   decreaseCartQuantity,
   //   removeFromCart,
   // } = useShoppingCart()
-  // const quantity = getItemQuantity(id)
+  const quantity = getItemQuantity(1)
 
   return (
  
@@ -27,7 +27,7 @@ export function StoreItem(
         height='200px'
         style={{ objectFit: 'cover' }}
       />
-      {/* <Card.Body className='d-flex flex-column'>
+      <Card.Body className='d-flex flex-column'>
         <Card.Title className='d-flex justify-content-between align-items-baseline mb-4'>
           <span className='fs-2'>{name}</span>
           <span className='ms-2 text-muted'>{formatCurrency(price)}</span>
@@ -46,14 +46,18 @@ export function StoreItem(
                 className='d-flex align-items-center justify-content-center'
                 style={{ gap: '.5rem' }}
               >
-                <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
+                <Button
+                //  onClick={() => decreaseCartQuantity(id)}
+                >-</Button>
                 <div>
                   <span className='fs-3'>{quantity}</span> in cart
                 </div>
-                <Button onClick={() => increaseCartQuantity(id)}>+</Button>
+                <Button 
+                // onClick={() => increaseCartQuantity(id)}
+                >+</Button>
               </div>
               <Button
-                onClick={() => removeFromCart(id)}
+                // onClick={() => removeFromCart(id)}
                 variant='danger'
                 size='sm'
               >
@@ -62,8 +66,8 @@ export function StoreItem(
             </div>
           )}
         </div>
-      </Card.Body> */}
-   /</Card> 
+      </Card.Body>
+   </Card> 
    
   )
 
